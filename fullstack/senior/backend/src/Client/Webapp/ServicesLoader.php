@@ -8,6 +8,10 @@ class ServicesLoader
 {
     protected $app;
 
+    /**
+     * 
+     * @param Application $app
+     */
     public function __construct(Application $app)
     {
         $this->app = $app;
