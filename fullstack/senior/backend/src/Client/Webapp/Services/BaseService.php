@@ -5,7 +5,7 @@ namespace Client\Webapp\Services;
 class BaseService
 {
     private $arr_data = array();
-
+    
     public function __construct()
     {
         $this->init_data();
