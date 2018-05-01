@@ -4,8 +4,13 @@ namespace Client\Webapp\Services;
 
 class SurveysService extends BaseService
 {
-
-    public function getSurvey($type,$code){
+    /**
+     * 
+     * @param String $type
+     * @param String $code
+     * @return number|number[]
+     */
+    public function getSurvey(String $type,String $code){
         $arrOptions = array();
         $sum = 0;
         $nb_surveys = 0;
