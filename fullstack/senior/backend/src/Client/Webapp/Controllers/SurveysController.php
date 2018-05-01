@@ -4,6 +4,7 @@ namespace Client\Webapp\Controllers;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Client\Webapp\Services\SurveysService;
 
 
 class SurveysController
@@ -11,19 +12,22 @@ class SurveysController
 
     protected $surveyService;
 
-    public function __construct($service)
+    /**
+     * 
+     * @param SurveysService $service
+     */    
+    public function __construct(SurveysService $service)
     {
         $this->surveyService = $service;
     }
 
-    public function getSurvey($type,$code){
+    /**
+     * 
+     * @param String $type
+     * @param String $code
+     * @return \Symfony\Component\HttpFoundation\JsonResponse
+     */
+    public function getSurvey(String $type,String $code){
         return new JsonResponse($this->surveyService->getSurvey($type,$code));
-    }
-
-    public function getDataFromRequest(Request $request)
-    {
-        return $survey = array(
-            "survey" => $request->request->get("survey")
-        );
     }
 }
